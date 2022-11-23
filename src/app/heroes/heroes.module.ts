@@ -6,6 +6,7 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { HeroesRoutingModule } from './heroes-routing.module';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -19,7 +20,8 @@ import { HeroesRoutingModule } from './heroes-routing.module';
   ],
   imports: [
     CommonModule,
-    HeroesRoutingModule
+    HeroesRoutingModule,
+    MaterialModule,
   ]
 })
 export class HeroesModule { }

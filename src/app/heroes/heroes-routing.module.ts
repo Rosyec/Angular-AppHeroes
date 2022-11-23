@@ -5,10 +5,12 @@ import { ListarComponent } from './pages/listar/listar.component';
 import { AgregarComponent } from './pages/agregar/agregar.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Route[] = [
   {
     path: '',
+    component: HomeComponent,
     children: [
       {
         path: 'listado', component: ListarComponent
