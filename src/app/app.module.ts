@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { AuthModule } from './auth/auth.module';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
     BrowserAnimationsModule,
     MaterialModule,
     HeroesModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
