@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-2 col-md-6 col-sm-12 g-0" *ngFor="let heroe of heroes" style="display: flex;">
+            <mat-card style="margin: 10px; flex: 1;">
+                <mat-card-header style="min-height: 100px;">
+                    <mat-card-title> {{ heroe.superhero }} </mat-card-title>
+                    <mat-card-subtitle> {{ heroe.characters }} </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]=" heroe | imagen ">
+                <mat-card-content style="min-height: 50px;">
+                    <h3> {{ heroe.publisher }} </h3>
+                    <p>
+                        <strong>Primera aparición: </strong>
+                        <br>
+                        <small>{{ heroe.first_appearance }}</small>
+                    </p>
+                </mat-card-content>
+                <mat-card-actions style="margin-top: 20px;">
+                    <button mat-button color="accent" [routerLink]="['/heroes', heroe.id]">Leer más</button>
+                    <button mat-button [routerLink]="['/heroes/editar', heroe.id]">Editar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

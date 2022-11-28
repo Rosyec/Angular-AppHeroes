@@ -7,6 +7,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { HeroeCardComponent } from './components/heroe-card/heroe-card.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,12 +19,15 @@ import { MaterialModule } from '../material/material.module';
     BuscarComponent,
     HeroeComponent,
     HomeComponent,
-    ListarComponent
+    ListarComponent,
+    HeroeCardComponent,
+    ImagenPipe
   ],
   imports: [
     CommonModule,
     HeroesRoutingModule,
     MaterialModule,
+    FormsModule,
   ]
 })
 export class HeroesModule { }

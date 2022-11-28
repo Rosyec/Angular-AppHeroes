@@ -1,4 +1,4 @@
-<mat-sidenav-container fullscreen>
+<mat-sidenav-container fullscreen style="background-color: #e8eaf6;">
 
     <mat-sidenav #sidenav mode="push">
         <mat-toolbar color="primary">
@@ -10,20 +10,16 @@
         </mat-toolbar>
 
         <mat-nav-list>
-            <a routerLink="./listado" #btnLink mat-list-item (click)="funcionesNav('Lista de Héroes')">
-                <mat-icon mat-list-icon>label</mat-icon>
+            <a routerLink="./listado" #btnLink mat-list-item (click)="funcionesNav('listado')">
+                <mat-icon mat-list-icon color="primary">label</mat-icon>
                 <span>Lista de Héroes</span>
             </a>
-            <a routerLink="./agregar" mat-list-item (click)="funcionesNav('Agregar Héroe')">
-                <mat-icon mat-list-icon>add</mat-icon>
+            <a routerLink="./agregar" mat-list-item (click)="funcionesNav('agregar')">
+                <mat-icon mat-list-icon color="primary">add</mat-icon>
                 <span>Agregar Héroe</span>
             </a>
-            <a routerLink="./editar" mat-list-item (click)="funcionesNav('Editar Héroe')">
-                <mat-icon mat-list-icon>edit</mat-icon>
-                <span>Editar Héroe</span>
-            </a>
-            <a routerLink="./buscar" mat-list-item (click)="funcionesNav('Buscar Héroe')">
-                <mat-icon mat-list-icon>search</mat-icon>
+            <a routerLink="./buscar" mat-list-item (click)="funcionesNav('buscar')">
+                <mat-icon mat-list-icon color="primary">search</mat-icon>
                 <span>Buscar Héroe</span>
             </a>
         </mat-nav-list>

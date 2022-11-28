@@ -17,7 +17,7 @@ export class ListarComponent implements OnInit {
       {
         next: (response) => {
           this.heroes = response;
-          console.log(response)
+          //console.log(response)
         }
       }
     );

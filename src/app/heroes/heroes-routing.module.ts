@@ -13,19 +13,19 @@ const routes: Route[] = [
     component: HomeComponent,
     children: [
       {
-        path: 'listado', component: ListarComponent
+        path: 'listado', component: ListarComponent, title: 'Listar'
       },
       {
-        path: 'agregar', component: AgregarComponent
+        path: 'agregar', component: AgregarComponent, title: 'Agregar'
       },
       {
-        path: 'editar/:id', component: AgregarComponent
+        path: 'editar/:id', component: AgregarComponent, title: 'Editar'
       },
       {
-        path: 'buscar', component: BuscarComponent
+        path: 'buscar', component: BuscarComponent, title: 'Buscar'
       },
       {
-        path: ':id', component: HeroeComponent
+        path: ':id', component: HeroeComponent, title: 'Ver'
       },
       {
         path: '**', redirectTo: 'listado'

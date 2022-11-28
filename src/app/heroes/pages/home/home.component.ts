@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
+import { Router, ActivationStart } from '@angular/router';
 
 
 @Component({
@@ -9,45 +9,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  title: string = 'App Héroes';
-  ruta: string = this.route.url;
+  title: string = 'Lista de Héroes';
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   constructor(private route: Router) { }
 
   ngOnInit(): void {
+    this.route.events.subscribe( (event) => {
+      if ( event instanceof ActivationStart ) {
+        this.setTitleToolbar( event.snapshot.routeConfig?.path || '' );
+      }
+      //console.log(event)
+    } )
+  }
 
-    switch ( this.ruta ) {
-      case '/heroes/listado':
+  funcionesNav(title: string) {
+    this.sidenav.toggle();
+    this.setTitleToolbar(title)
+  }
+
+  setTitleToolbar(title: string) {
+    switch (title) {
+      case 'listado':
         this.title = 'Lista de Héroes'
         break;
 
-      case '/heroes/agregar':
+      case 'agregar':
         this.title = 'Agregar Héroe'
         break;
 
-      case '/heroes/editar':
+      case 'buscar':
+        this.title = 'Buscar Héroe'
+        break;
+
+      case 'editar/:id':
         this.title = 'Editar Héroe'
         break;
 
-      case '/heroes/buscar':
-        this.title = 'Buscar Héroe'
+      case ':id':
+        this.title = 'Ver Héroe'
         break;
 
       default:
         this.title = 'Lista de Héroes'
         break;
     }
-  }
-
-  funcionesNav(title: string) {
-    this.title = title;
-    this.toggle();
-  }
-
-  toggle() {
-    this.sidenav.toggle();
   }
 
 }

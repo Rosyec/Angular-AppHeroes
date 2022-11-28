@@ -1,1 +1,43 @@
-<p>editar works!</p>
+<mat-grid-list cols="1" *ngIf="!heroe; else data">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #data>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <mat-card style="margin: 10px ;" class="col-lg-4">
+                <mat-card-content>
+                    <div class="col">
+                        <h1> {{ heroe.superhero }} <small> - {{ heroe.alter_ego }} </small> </h1>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <img mat-card-image [src]="heroe | imagen" alt="">
+                    </div>
+
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <mat-card-content>
+                    <h1> {{ heroe.publisher }} </h1>
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <span> {{ heroe.first_appearance }} </span>
+                            <br>
+                            <span> {{ heroe.characters }} </span>
+                            <br>
+                            <span> {{ heroe.publisher }} </span>
+                            <br>
+                            <span> {{ heroe.alter_ego }} </span>
+                        </div>
+
+                    </div>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button (click)="regresar()" mat-button color="accent">Regresar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</ng-template>

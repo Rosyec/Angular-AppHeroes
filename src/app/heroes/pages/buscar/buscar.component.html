@@ -1,1 +1,26 @@
-<p>buscar works!</p>
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col">
+            
+            <mat-form-field class="mt-3" style="width: 80%;" appearance="outline">
+                <mat-label>Buscar</mat-label>
+                <input type="text" placeholder="Escribir..." aria-label="Buscar" #inputBuscar matInput [(ngModel)]="termino" [matAutocomplete]="auto" [ngModelOptions]="{standalone: true}" (input)="buscando()">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                    (optionSelected)="opcionSeleccionada( $event )">
+                    <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+                        {{heroe.superhero}}
+                    </mat-option>
+                    <mat-option *ngIf="heroes.length == 0 && termino != '' " value="">No se encontró nada</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col">
+            <app-heroe-card [heroes]="heroes"></app-heroe-card>
+        </div>
+    </div>
+</div>
