@@ -20,8 +20,6 @@ export class BuscarComponent implements OnInit {
   }
 
 
-  
-  
   ngOnInit(): void {
     this.input.nativeElement.focus()
     this.todosLosHeroes();

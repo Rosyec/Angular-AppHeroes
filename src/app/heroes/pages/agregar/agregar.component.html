@@ -1,1 +1,58 @@
-<p>agregar works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-3 mb-3">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img id="imgTarjeta" [src]="heroe | imagen" class="img-fluid" style="height: 100%; width: 100%;" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title" style="font-weight: 500;">Héroe: {{ heroe.superhero }}</h1>
+                            <h5 class="mb-5">Los campos con (*) son obligatorios</h5>
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>SuperHéroe</mat-label>
+                                <input matInput type="text" required [(ngModel)]="heroe.superhero">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Alter Ego</mat-label>
+                                <input matInput type="text" required [(ngModel)]="heroe.alter_ego">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Primera Aparación</mat-label>
+                                <input matInput type="text" required [(ngModel)]="heroe.first_appearance">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Personajes</mat-label>
+                                <input matInput type="text" required [(ngModel)]="heroe.characters">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Creador</mat-label>
+                                <mat-select [(ngModel)]="heroe.publisher" required>
+                                    <mat-option value="option1">- Seleccionar -</mat-option>
+                                    <mat-option [value]="options.id" *ngFor="let options of publisher"> {{ options.desc
+                                        }} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Url</mat-label>
+                                <input matInput type="text" required [(ngModel)]="heroe.img_url">
+                            </mat-form-field>
+
+                            <div style="display: flex; margin-bottom: 0;">
+                                <span style="flex: 1;"></span>
+                                <button mat-button color="warn" (click)="delete()" *ngIf="heroe.id">Eliminar</button>
+                                <button mat-raised-button color="primary" (click)="save()"> {{ btnTexto }} </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
