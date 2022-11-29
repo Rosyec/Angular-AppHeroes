@@ -11,7 +11,7 @@ export class ImagenPipe implements PipeTransform {
 
 
     if (!heroe.id && !heroe.img_url) {
-      return 'assets/no-image.png';
+      return 'assets/noimage.png';
     } else if (heroe.img_url) {
       return heroe.img_url!;
     } else {

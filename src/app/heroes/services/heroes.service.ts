@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -13,6 +13,10 @@ export class HeroesService {
 
   constructor( private http: HttpClient ) { }
 
+  get httpParams() {
+    return new HttpParams().set('q', 'flags,name,capital,population,cca2,borders,subregion');
+  }
+
   getHeroes():Observable<Heroe[]>{
     return this.http.get<Heroe[]>(this.url.concat('/heroes'));
   }
@@ -22,7 +26,7 @@ export class HeroesService {
   }
 
   getSugerencias( termino: string ):Observable<Heroe[]>{
-    return this.http.get<Heroe[]>(this.url.concat('/heroes?q=').concat( termino ).concat('&_limit=6'));
+    return this.http.get<Heroe[]>(this.url.concat('/buscar'), {params: new HttpParams().set('q', termino)});
   }
 
   saveHeroe( heroe: Heroe ): Observable<Heroe>{
@@ -30,7 +34,8 @@ export class HeroesService {
   }
 
   updateHeroe( heroe: Heroe ): Observable<Heroe>{
-    return this.http.put<Heroe>(this.url.concat('/heroes/').concat(heroe.id!), heroe);
+    // return this.http.put<Heroe>(this.url.concat('/heroes/').concat(heroe.id!), heroe);
+    return this.http.put<Heroe>(this.url.concat('/heroes/'), heroe);
   }
 
   deleteHeroe( heroe: Heroe ): Observable<any>{

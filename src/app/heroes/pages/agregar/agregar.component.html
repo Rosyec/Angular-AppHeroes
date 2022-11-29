@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-12 col-md-12 col-sm-12 mt-3 mb-3">
+        <div class="col-lg-10 col-md-10 col-sm-12 mt-3 mb-3">
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
@@ -8,8 +8,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h1 class="card-title" style="font-weight: 500;">Héroe: {{ heroe.superhero }}</h1>
-                            <h5 class="mb-5">Los campos con (*) son obligatorios</h5>
+                            <h1 class="card-title" style="font-weight: 500;">{{ btnTexto }}: {{ heroe.superhero }}</h1>
+                            <h5 class="mb-3">Los campos con (*) son obligatorios</h5>
                             <mat-form-field appearance="outline" style="width: 100%;">
                                 <mat-label>SuperHéroe</mat-label>
                                 <input matInput type="text" required [(ngModel)]="heroe.superhero">
@@ -34,8 +34,7 @@
                                 <mat-label>Creador</mat-label>
                                 <mat-select [(ngModel)]="heroe.publisher" required>
                                     <mat-option value="option1">- Seleccionar -</mat-option>
-                                    <mat-option [value]="options.id" *ngFor="let options of publisher"> {{ options.desc
-                                        }} </mat-option>
+                                    <mat-option [value]="options.id" *ngFor="let options of publisher"> {{ options.desc }} </mat-option>
                                 </mat-select>
                             </mat-form-field>
 
@@ -44,10 +43,10 @@
                                 <input matInput type="text" required [(ngModel)]="heroe.img_url">
                             </mat-form-field>
 
-                            <div style="display: flex; margin-bottom: 0;">
+                            <div style="display: flex;">
                                 <span style="flex: 1;"></span>
-                                <button mat-button color="warn" (click)="delete()" *ngIf="heroe.id">Eliminar</button>
-                                <button mat-raised-button color="primary" (click)="save()"> {{ btnTexto }} </button>
+                                <button mat-stroked-button color="warn" (click)="delete()" style="width: 100%; margin-right: 5px;" *ngIf="heroe.id">Eliminar</button>
+                                <button mat-raised-button color="primary" (click)="save()" style="width: 100%; margin-left: 5px;"> {{ btnTexto }} </button>
                             </div>
                         </div>
                     </div>
