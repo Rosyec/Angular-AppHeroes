@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router, ActivationStart } from '@angular/router';
+import { Auth } from 'src/app/auth/interfaces/auth.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 @Component({
@@ -13,10 +15,10 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  constructor(private route: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.route.events.subscribe( (event) => {
+    this.router.events.subscribe( (event) => {
       if ( event instanceof ActivationStart ) {
         this.setTitleToolbar( event.snapshot.routeConfig?.path || '' );
       }
@@ -55,6 +57,15 @@ export class HomeComponent implements OnInit {
         this.title = 'Lista de Héroes'
         break;
     }
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['./auth'])
+  }
+
+  get auth(){
+    return this.authService.getAuth;
   }
 
 }
