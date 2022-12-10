@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
       if ( event instanceof ActivationStart ) {
         this.setTitleToolbar( event.snapshot.routeConfig?.path || '' );
       }
-      //console.log(event)
     } )
   }
 

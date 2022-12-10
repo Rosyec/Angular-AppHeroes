@@ -1,0 +1,18 @@
+.caja{
+    /* background-image: url(/assets/fondo-login.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: rgb(255,255,255);
+    background: linear-gradient(196deg, rgba(255,255,255,1) 0%, rgba(243,244,248,1) 28%, rgba(178,181,205,1) 100%, rgba(91,98,149,1) 100%);
+}
+
+.container{
+    min-height: 80vh;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+a{
+    text-decoration: none;
+}

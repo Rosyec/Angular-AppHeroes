@@ -11,27 +11,36 @@ export class AuthService {
   private url: string = environment.URL_USUARIO;
   private auth: Auth | undefined;
 
-  constructor( private http: HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
-  get getAuth(){
+  get getAuth() {
     return { ...this.auth };
   }
 
-  login(){
-    return this.http.get<Auth>(`${ this.url }/usuarios/104aax`)
-    .pipe(tap( (response) => { this.auth = response } ),
-          tap( (response) => { localStorage.setItem('token', response.id) } ));
+  login( usuario: Auth ): Observable<Auth> {
+    return this.http.get<Auth>(`${this.url}/usuarios/${ usuario.email }`)
+      .pipe(tap((response) => { this.auth = response }),
+        tap((response) => { localStorage.setItem('token', response.email) }));
   }
 
-  verificarAuth():Observable<boolean>{
-    if ( !localStorage.getItem('token') ) {
-      return of(false)
+  register( usuario: Auth ): Observable<Auth>{
+    return this.http.post<Auth>(`${this.url}/usuarios`, usuario);
+  }
+
+  verificarAuth(): Observable<boolean> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        return of(false)
+    } else {
+        return this.http.get<Auth>(`${this.url}/usuarios/${ token }`)
+          .pipe(map((auth) => {
+            this.auth = auth;
+            return true;
+        }));
     }
-
-    return this.http.get<Auth>(`${ this.url }/usuarios/104aax`)
-    .pipe( map( (auth) => {
-      this.auth = auth;
-      return true;
-    } ) );
   }
+
+
+
+
 }

@@ -1,0 +1,27 @@
+<mat-sidenav-container class="sidenav">
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button color="secondary" [hidden]="mostrarBoton" id="btnBack" #btnBack (click)="atras()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <span> {{ title }} </span>
+        <span class="spacer"></span>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/auth/register']">
+              <mat-icon>person_add</mat-icon>
+              <span>Register</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/auth/login']">
+              <mat-icon>login</mat-icon>
+              <span>Login</span>
+            </button>
+          </mat-menu>
+
+    </mat-toolbar>
+
+</mat-sidenav-container>

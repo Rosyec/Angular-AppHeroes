@@ -11,6 +11,7 @@ import { HeroeCardComponent } from './components/heroe-card/heroe-card.component
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { FormsModule } from '@angular/forms';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { ToolbarModule } from '../toolbar/toolbar.module';
 
 
 
@@ -30,6 +31,7 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     HeroesRoutingModule,
     MaterialModule,
     FormsModule,
+    ToolbarModule
   ]
 })
 export class HeroesModule { }

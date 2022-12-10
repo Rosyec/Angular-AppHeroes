@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroesService } from './heroes/services/heroes.service';
+import { ToolbarModule } from './toolbar/toolbar.module';
 
 @NgModule({
   declarations: [
@@ -22,10 +23,12 @@ import { HeroesService } from './heroes/services/heroes.service';
     BrowserAnimationsModule,
     MaterialModule,
     HeroesModule,
+    HttpClientModule,
     AuthModule,
-    HttpClientModule
+    ToolbarModule,
+    
   ],
   providers: [HeroesService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

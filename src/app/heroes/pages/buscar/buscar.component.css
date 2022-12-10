@@ -1,0 +1,20 @@
+.caja{
+    /* background-color: rgb(255, 255, 255); */
+    margin: 30px;
+}
+
+.fila{
+    /* background-color: rgb(255, 255, 255); */
+    /* min-height: 600px; */
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    overflow: hidden;
+}
+
+.caja{
+    position: relative;
+    transition: 500ms ease;
+    border-radius: 3px;
+    min-width: 400px;
+}

@@ -1,4 +1,4 @@
-<mat-sidenav-container fullscreen style="background-color: #e8eaf6;">
+<mat-sidenav-container class="sidenav" fullscreen>
 
     <mat-sidenav #sidenav mode="push">
         <mat-toolbar color="primary">
@@ -33,10 +33,22 @@
         <span class="spacer"></span>
         <span> {{ title }} </span>
         <span class="spacer"></span>
-        <span> {{ auth.usuario }} </span>
-        <button mat-icon-button color="secondary" (click)="logout()">
-            <mat-icon>logout</mat-icon>
-        </button>
+        <small class="mx-2"> {{ auth.usuario }} </small>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>meeting_room</mat-icon>
+              <span>Logout</span>
+            </button>
+            <button hidden mat-menu-item>
+              <mat-icon>login</mat-icon>
+              <span>Login</span>
+            </button>
+          </mat-menu>
+
     </mat-toolbar>
 
 
@@ -44,4 +56,5 @@
     <router-outlet></router-outlet>
 </div>
 
+<app-footer></app-footer>
 </mat-sidenav-container>
