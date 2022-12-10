@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
           }
 
           console.log(this.miFormulario.value)
-          console.log(response)
+          console.log('Response Backend; ',response)
         },
         error: (err) => {
           console.log('ERROR-LOGIN', err)

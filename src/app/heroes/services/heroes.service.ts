@@ -13,10 +13,6 @@ export class HeroesService {
 
   constructor( private http: HttpClient ) { }
 
-  get httpParams() {
-    return new HttpParams().set('q', 'flags,name,capital,population,cca2,borders,subregion');
-  }
-
   getHeroes():Observable<Heroe[]>{
     return this.http.get<Heroe[]>(this.url.concat('/heroes'));
   }
